@@ -156,11 +156,12 @@ body.love-page {
   max-width: 380px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 L10 45 A20 20 0 0 1 50 20 A20 20 0 0 1 90 45 Z" /></svg>');
+  object-position: center center;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 94 L6 46 A25 25 0 0 1 50 16 A25 25 0 0 1 94 46 Z" /></svg>');
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 L10 45 A20 20 0 0 1 50 20 A20 20 0 0 1 90 45 Z" /></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 94 L6 46 A25 25 0 0 1 50 16 A25 25 0 0 1 94 46 Z" /></svg>');
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -263,4 +264,5 @@ body.love-page {
     margin-top: 10px;
   }
 }
+
 
