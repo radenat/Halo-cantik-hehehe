@@ -1,0 +1,266 @@
+/* ======================
+   UMUM
+====================== */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ======================
+   HALAMAN INDEX
+====================== */
+body.index-page {
+  background: linear-gradient(to bottom right, #ffd6e8, #ffb6d9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #d63384;
+  margin-bottom: 30px;
+}
+
+.btn-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+/* Tampilan tombol cantik */
+button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  min-width: 150px; /* biar ukuran stabil */
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff85c1, #ff5ca0);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 92, 160, 0.4);
+}
+
+#yesBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(255, 92, 160, 0.5);
+}
+
+#noBtn {
+  background: #e4e4e4;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#noBtn:hover {
+  transform: rotate(3deg);
+}
+
+/* Versi HP (tombol vertikal) */
+@media (max-width: 768px) {
+  .btn-container {
+    flex-direction: column;
+  }
+
+  button {
+    width: 70%;
+  }
+}
+
+
+/* ======================
+   HALAMAN LOVE
+====================== */
+body.love-page {
+  background-color: #ffd6e8;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #ff4b77;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ❤️ Background Hearts Canvas */
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- CONTENT AREA --- */
+.content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertikal */
+  align-items: center; /* center horizontal */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #ff6699, #ff3366);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 40px;
+}
+
+/* --- CAROUSEL --- */
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ❤️ Heart-shaped Image pakai SVG mask */
+.slide img {
+  width: 90%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 L10 45 A20 20 0 0 1 50 20 A20 20 0 0 1 90 45 Z" /></svg>');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 L10 45 A20 20 0 0 1 50 20 A20 20 0 0 1 90 45 Z" /></svg>');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: transform 0.4s ease;
+}
+
+.slide:hover img {
+  animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.slide p {
+  font-style: italic;
+  color: #e91e63;
+  font-size: 1.1rem;
+}
+
+/* --- Dots (indicator) --- */
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px; /* kasih jarak manis dari foto */
+  margin-bottom: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff8fb1;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+/* ========== RESPONSIVE FIX ========== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .slide img {
+    max-width: 260px;
+  }
+
+  .slide p {
+    font-size: 1rem;
+  }
+
+  .content {
+    justify-content: center; /* tetap di tengah */
+    align-items: center;
+    padding: 60px 10px;
+  }
+
+  .carousel-container {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .dots {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .slide img {
+    max-width: 220px;
+  }
+
+  .slide p {
+    font-size: 0.95rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dots {
+    margin-top: 10px;
+  }
+}
+
